@@ -2,3 +2,12 @@ body{
     background-color: black;
     color: gold;
 }
+
+
+.hide_content{
+    display: none;
+}
+
+.show_content{
+    display: revert;
+}
