@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background-color: black;
+            }
+
+            textarea{
+                width: 100%;
+                height: 100%;
+                font-size: 2em;
+                border-color: black;
+                border-width: 0;
+                
+            }
+
+            #subtopicid{
+                display: none;
+            }
+
+            .checkbox{
+                display: inline;
+            }
+
+            #question{
+                height: 300px;
+                color: gold;
+                background-color: black;
+                font: 2em helvetica;
+            }
+
+            label{
+                font-size: 1em;
+                color: dimgray;
+                
+            }
+
+            .label_class{
+                font-size: 2em;
+                color: dimgray;
+            }
+
+
+            #answer{
+                height: 300px;
+                color: gold;
+                background-color: black;
+                font: 2em helvetica;
+            }
+
+
+            img{
+                border: 2px solid orange;
+                margin-top: 1em;
+                padding: 5px;
+                
+            }
+
+.opt_checked{
+  border: 3px solid orange;
+}
+
+.correct{
+    border: 3px solid rgb(0, 253, 13);
+}
+
+.correct_but_not_selected{
+    border: 6px solid rgb(0, 131, 7);
+}
+
+.wrong_and_selected{
+    border: 6px solid rgb(253, 0, 0);
+}
+
+
+.label_for_option_number{
+    color: rgb(145, 130, 47);
+}
+
+.question_label{
+    display: block;
+}
+
+#question{
+    display: block;
+    
+    height: 100%;
+
+    margin-left: 0em;
+    margin-top: 8px;
+
+    padding-top: 0em;
+    padding-bottom: 0em;
+
+    padding-left: 0em;
+    padding-right: 0em;
+}
+
+#answer{
+    height: 100%;
+}
+
+.opt{
+                display: inline-block;
+                padding-top: 8px;
+                padding-bottom: 8px;
+
+                padding-left: 8px;
+                padding-right: 8px;
+                color: rgb(255, 204, 0);
+                background-color: black;
+                font: 2em helvetica;
+            }
+
+            .hide_option{
+                display: none;
+            }
+
+</style>
+</head>
+<body>
+
+    <script src="js/MCQQuestions.js"></script>
+
+<script>
+    //let pathName = window.location.pathname
+
+    let questionNumber = window.parent.questionNumber
+
+    let questionsIds = Object.keys(mcqQuestions)
+
+    if(questionNumber >= questionsIds.length){
+        questionNumber = 0
+        window.parent.questionNumber = 0
+    }
+
+    let currentQuestion = mcqQuestions[questionsIds[questionNumber]]
+
+    let question = currentQuestion.question
+
+    let id = questionsIds[questionNumber]
+
+    let answer = currentQuestion.answer
+    
+
+    let options = []
+
+    for(let i = 0; i < currentQuestion.options.length; i++){
+        if(currentQuestion.options[i] !== ''){
+            options.push(currentQuestion.options[i])
+            console.log(options.length) // option number
+            console.log(options[options.length -1]) // option text
+
+            // if current option is the answer, then notify it in log
+            if(answer === options[options.length -1]){
+                console.log("Answer matches this option")
+            }
+
+            console.log("---")
+        }
+    }
+
+</script>
+    <div>
+        <label for="question" class="question_label">MCQ Question</label>
+        <p id="question" name="question" readonly></p>
+    </div>
+
+
+
+    <div id="div_1" class="hide_option">
+        <input type="radio" id="radio_1" class="radio" name="option_list" value="1">
+        <label for="option_1" class="label_for_option_number">1</label>
+        <label for="radio_1" id="option_1" class="opt" name="options" readonly></label>
+    </div>
+
+    <div id="div_2" class="hide_option">
+        <input type="radio" id="radio_2" class="radio" name="option_list" value="2">
+        <label for="option_2" class="label_for_option_number">2</label>
+        <label for="radio_2" id="option_2" class="opt" name="options" readonly></label>
+    </div>
+
+    <div id="div_3" class="hide_option">
+        <input type="radio" id="radio_3" class="radio" name="option_list" value="3">
+        <label for="option_3" class="label_for_option_number">3</label>
+        <label for="radio_3" id="option_3" class="opt" name="options" readonly></label>
+    </div>
+
+    <div id="div_4" class="hide_option">
+        <input type="radio" id="radio_4" class="radio" name="option_list" value="4">
+        <label for="option_4" class="label_for_option_number">4</label>
+        <label for="radio_4" id="option_4" class="opt" name="options" readonly></label>
+    </div>
+
+    
+
+<script>
+    
+    document.querySelector('#question').innerHTML = question
+
+    let numbers = []
+
+    for(let i = 0; i < options.length; i++){
+        let optionNumber = i + 1
+        numbers.push(optionNumber.toString(10))
+        document.querySelector('#div_' + optionNumber).classList.remove('hide_option')
+        document.querySelector('#option_' + (i + 1)).innerHTML = options[i]
+    }
+    
+    let questionAnswered = false
+    
+
+    function showResult(res){
+        if(res === 'correct'){
+            let radio = document.querySelector('input[type=radio]:checked')
+
+            let opt = document.querySelector('#option_' + radio.value)
+            opt.classList.add('correct')
+        
+        }else if(res === 'wrong'){
+            let opt_list = document.querySelectorAll('.opt')
+            for(let i = 0; i < options.length; i++){
+                let radio = document.querySelector('#radio_'+ (i+1))
+                if(answer === opt_list[i].innerHTML){
+                    opt_list[i].classList.add('correct_but_not_selected')
+                }else{
+                    if(radio.checked){
+                        opt_list[i].classList.add('wrong_and_selected')
+                    }
+                }
+            }
+        }
+    }
+    
+
+    function checkAnswer(event){
+        let radio = document.querySelector('input[type=radio]:checked')
+        let selected_option_num = ''
+        if(radio !== null){
+            selected_option_num = radio.value
+
+            let textarea = document.querySelector('#option_'+selected_option_num)
+            
+            let selected_ans = textarea.innerHTML
+
+            let answer_result = false // indicates if selected option is correct or wrong after checking, initially set to false
+
+            // checking for answer
+            if(selected_ans === answer){
+                answer_result = true
+            }else{
+                answer_result = false
+            }
+            questionAnswered = true // set to <true> after user submits answer for checking so no repeat submission occurs
+
+            if(answer_result === true){
+                showResult('correct')
+                //window.parent.removeIdAfterTakingTestOrNotAttempting('McqNormal', id)
+            }else if(answer_result === false){
+                showResult('wrong')
+                //window.parent.removeIdAfterTakingTestOrNotAttempting('McqNormal', id)
+            }
+        }else{
+            alertF('Please select an option first')
+        }
+    }
+    
+    document.querySelectorAll('.radio').forEach(element => element.addEventListener('change', (event) => {
+        let num = event.target.id.split('_')[1]
+        highlightSelectedOption(num)
+    })
+    )
+
+    document.querySelectorAll('.opt').forEach(element => element.addEventListener('click', (event) => {
+        let num = event.target.id.split('_')[1]
+        highlightSelectedOption(num)
+    })
+    )
+
+    function highlightSelectedOption(num){
+        let radio = document.querySelector('#radio_'+num)
+        if(radio !== null){
+            let opt = document.querySelector('#option_' + num)
+            if(radio.checked == true){
+                // radio button already checked
+
+                // but have to repeat same steps to highlight option if radio button is clicked manully
+                // get all textarea and remove <opt_checked> class from previously checked radio button
+                let all = document.querySelectorAll('.opt')
+
+                for(let i = 0; i < options.length; i++){
+                    all[i].classList.remove('opt_checked')
+                }
+
+                // check the user selected radio button and add a <opt_checked> class to specfic text area
+                radio.checked = true // not required as its already checked manually
+                opt.classList.add('opt_checked')
+                                    
+            }else{
+                // get all textarea and remove <opt_checked> class from previously checked radio button
+                let all = document.querySelectorAll('.opt')
+
+                for(let i = 0; i < options.length; i++){
+                    all[i].classList.remove('opt_checked')
+                }
+
+                // check the user selected radio button and add a <opt_checked> class to specfic text area
+                radio.checked = true
+                opt.classList.add('opt_checked')
+            }
+        }
+    }
+    window.addEventListener('keydown', (event) => {
+        if(numbers.includes(event.key)){
+            highlightSelectedOption(event.key)
+        }
+
+        // proper true false validation is required
+        if(event.key.toLowerCase() === 't'){
+            let radioList = document.querySelectorAll('input[type=radio]')
+            if(radioList.length == 2){
+                for(let i = 0; i < 2; i++){
+                    let val = document.querySelector('#option_' + (i+1)).innerHTML.toLowerCase()
+                    if(val === 'true'){
+                        radioList[i].checked = true
+                        break
+                    }
+                }
+            }
+        }
+
+        if(event.key.toLowerCase() === 'f'){
+            let radioList = document.querySelectorAll('input[type=radio]')
+            if(radioList.length == 2){
+                for(let i = 0; i < 2; i++){
+                    let val = document.querySelector('#option_' + (i+1)).innerHTML.toLowerCase()
+                    if(val === 'false'){
+                        radioList[i].checked = true
+                        break
+                    }
+                }
+            }
+        }
+
+        if(event.key === 'Enter'){
+            event.preventDefault()
+            if(questionAnswered == false){
+                checkAnswer(event)
+            }else if(questionAnswered == true){
+                //alertF('you already submitted answer once')
+                //window.parent.startTestTaking()
+            }
+            
+
+        }
+        
+        if(event.key === 'ArrowRight'){
+            if(questionAnswered == true){
+                window.parent.questionNumber += 1
+                window.parent.mcqTestTakingIframe.src = "MCQTest.html"
+            }else if(questionAnswered == false){
+                alert("Please answer current question")
+            }
+        }
+        
+    })
+</script>
+
+ </body>
+</html>

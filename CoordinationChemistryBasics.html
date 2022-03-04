@@ -6,27 +6,94 @@
 
         <link href="css/SiteWide.css" rel="stylesheet" >
         <title>
-            Coordination Chemistry Basics
+            Coordination Complexes
         </title>
 
     </head>
     <body>
-        <a href="index.html">Index Page</a>
+        <a href="index.html" class="eng_lang_content">Index Page</a>
+        <a href="index.html" class="hin_lang_content">विषय</a>
 
         <input type="radio" id="eng_lang_content_radio" name="language" value="eng" checked>
         <label for="eng_lang_content_radio">English</label>
 
         <input type="radio" id="hin_lang_content_radio" name="language" value="hin">
-        <label for="hin_lang_content_radio">Hindi</label>
+        <label for="hin_lang_content_radio">हिन्दी</label>
 
 
         <h1 class="eng_lang_content">
-            Coordination Chemistry Basics
+            Coordination Complexes
         </h1>
              
         <h1 class="hin_lang_content">
             कोऑर्डिनेशन केमिस्ट्री
         </h1>
+
+        <script>
+            let questionNumber = 0
+        </script>
+
+        <iframe
+        id="mcq_iframe"
+        src="MCQTest.html"
+        height="1000px"
+        width="100%">
+        </iframe>
+
+        <script>
+            let mcqTestTakingIframe = document.querySelector('#mcq_iframe')
+        </script>
+
+    <!-- 
+        Template structure
+
+        <p class="eng_lang_content">
+
+        </p>
+
+        <p class="hin_lang_content">
+            
+        </p>
+
+    -->
+
+
+    <!--
+
+        <p class="eng_lang_content">
+            What are coordination complexes and how do they form ?
+        </p>
+
+        <p class="hin_lang_content">
+            
+        </p>
+
+        <details class="eng_lang_content">
+            <summary>Show me the periodic table</summary>
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Periodic_table_detailed_enwp.svg" alt="Periodic table">
+                <figcaption>Image credit:Wikimedia Commons, CC BY 3.0</figcaption>
+            </figure>
+        </details>
+
+        <details class="hin_lang_content">
+            <summary>मुझे पीरिऑडिक टेबल दिखाए</summary>
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Periodic_table_large-hi.svg" alt="पीरिऑडिक टेबल">
+                <figcaption>Image credit:Wikimedia Commons, CC BY 3.0</figcaption>
+            </figure>
+        </details>
+
+    -->
+
+        <p class="eng_lang_content">
+
+        </p>
+
+        <p class="hin_lang_content">
+            
+        </p>
+
 
         <script src="js/basicFeatures.js"></script>
 

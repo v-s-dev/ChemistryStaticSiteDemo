@@ -11,3 +11,7 @@ body{
 .show_content{
     display: revert;
 }
+
+img{
+    background-color: white;
+}
