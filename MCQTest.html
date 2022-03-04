@@ -354,7 +354,11 @@
     let checkSubmitButton = document.querySelector('#check_submit_button')
     
     checkSubmitButton.addEventListener('click', (event) => {
-        checkAnswer("")
+        if(questionAnswered == false){
+            checkAnswer("")
+        }else if(questionAnswered == true){
+            nextQuestion()
+        }
     })
 
 
