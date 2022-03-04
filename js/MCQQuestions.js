@@ -98,7 +98,30 @@ mcqQuestions = {
     },
     
     
-    
+    '4':{
+        'question':'Coordination Number(CN) is ',
+        'image_url':null,
+        'answer':'the number of ligands which surround the metal',
+        'jumble':true,
+        'options':[
+            'the number of ligands which surround the metal',
+            'the number of metals which surround the ligand',
+            ''
+        ],
+        'option_remarks':[
+            '',
+            '',
+            ''
+        ],
+        'hints':[
+            '',
+            '',
+            ''
+        ]
+    },
+
+
+
     
 
 }
