@@ -11,10 +11,22 @@
         </title>
 
         <script>
-            function abc() {
-                alert("sss");
-            }
             let questionNumber = 0
+            
+
+            function getQuestionNumber() {
+                return questionNumber
+            }
+
+            function incrementQuestionNumber(){
+                questionNumber += 1
+            }
+
+            function reloadMcqTestTakingIframe(){
+                let mcqTestTakingIframe = document.querySelector('#mcq_iframe')
+                mcqTestTakingIframe.src = "MCQTest.html"
+            }
+        
         </script>
 
     </head>
@@ -43,10 +55,6 @@
         height="1000px"
         width="100%">
         </iframe>
-
-        <script>
-            let mcqTestTakingIframe = document.querySelector('#mcq_iframe')
-        </script>
 
     <!-- 
         Template structure

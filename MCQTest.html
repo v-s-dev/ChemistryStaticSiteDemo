@@ -126,17 +126,12 @@
 
 <script>
     //let pathName = window.location.pathname
-    alert(window.parent.location)
-    alert(window.parent.location.pathname)
-    alert(window.parent.abc())
+    alert(window.parent.getQuestionNumber())
 
     let questionNumber = window.parent.questionNumber
-    alert(window.parent.questionNumber)
+    alert(questionNumber)
 
     let questionsIds = Object.keys(mcqQuestions)
-    alert(questionsIds)
-
-    alert(mcqQuestions)
 
     if(questionNumber >= questionsIds.length){
         questionNumber = 0
@@ -365,8 +360,8 @@
         
         if(event.key === 'ArrowRight'){
             if(questionAnswered == true){
-                window.parent.questionNumber += 1
-                window.parent.mcqTestTakingIframe.src = "MCQTest.html"
+                window.parent.incrementQuestionNumber()
+                window.parent.reloadMcqTestTakingIframe()
             }else if(questionAnswered == false){
                 alert("Please answer current question")
             }
