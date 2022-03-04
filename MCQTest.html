@@ -128,13 +128,13 @@
     //let pathName = window.location.pathname
 
     let questionNumber = window.parent.getQuestionNumber()
-    alert(questionNumber)
+    //alert(questionNumber)
 
     let questionsIds = Object.keys(mcqQuestions)
 
     if(questionNumber >= questionsIds.length){
         questionNumber = 0
-        window.parent.questionNumber = 0
+        window.parent.setQuestionNumberToZero()
     }
 
     let currentQuestion = mcqQuestions[questionsIds[questionNumber]]
@@ -313,6 +313,16 @@
             }
         }
     }
+
+    function nextQuestion(){
+        if(questionAnswered == true){
+            window.parent.incrementQuestionNumber()
+            window.parent.reloadMcqTestTakingIframe()
+        }else if(questionAnswered == false){
+            alert("Please answer current question")
+        }
+    }
+
     window.addEventListener('keydown', (event) => {
         if(numbers.includes(event.key)){
             highlightSelectedOption(event.key)
@@ -350,21 +360,14 @@
             if(questionAnswered == false){
                 checkAnswer(event)
             }else if(questionAnswered == true){
-                //alertF('you already submitted answer once')
-                //window.parent.startTestTaking()
+                nextQuestion()
             }
             
 
         }
         
         if(event.key === 'ArrowRight'){
-            if(questionAnswered == true){
-                window.parent.incrementQuestionNumber()
-                window.parent.getQuestionNumber()
-                window.parent.reloadMcqTestTakingIframe()
-            }else if(questionAnswered == false){
-                alert("Please answer current question")
-            }
+            nextQuestion()
         }
         
     })
