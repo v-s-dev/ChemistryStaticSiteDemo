@@ -86,8 +86,8 @@
             
         </svg>
 
-        <h4 id="message_for_ligand"></h4>
-        <h5>Please click on molecule(or ion) that share their electrons here</h5>
+        <p class="message" id="message_for_ligand"></p>
+        <p class="task">Please click on molecule(or ion) that share their electrons here</p>
 
         <script>
             let ligand = document.querySelectorAll('.ligand')
@@ -97,7 +97,7 @@
             )
 
             let metal_ion = document.querySelector('#metal_ion')
-            metal_message = "You clicked on a <em><strong>transition metal</strong></em> which only recieves the electrons from others ligands without sharing any"
+            metal_message = "You clicked on a <em><strong>transition metal</strong></em> which only receives the electrons from others ligands without sharing any"
             metal_ion.addEventListener('click', (event) => {
                 document.querySelector('#message_for_ligand').innerHTML = metal_message
             })

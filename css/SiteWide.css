@@ -15,3 +15,16 @@ body{
 img{
     background-color: white;
 }
+
+.task{
+    font-size: 1em;
+    font-family: Helvetica, Arial;
+
+}
+
+
+.message{
+    font-size: 2em;
+    font-family: Helvetica, Arial;
+    
+}
