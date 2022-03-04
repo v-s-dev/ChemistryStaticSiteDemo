@@ -128,9 +128,13 @@
     //let pathName = window.location.pathname
 
     let questionNumber = window.parent.questionNumber
-    alert(window.parent)
+    alert(questionNumber)
+    alert(window.parent.questionNumber)
 
     let questionsIds = Object.keys(mcqQuestions)
+    alert(questionsIds)
+
+    alert(mcqQuestions)
 
     if(questionNumber >= questionsIds.length){
         questionNumber = 0
