@@ -55,7 +55,7 @@ mcqQuestions = {
     '2':{
         'question':'Electrons are donated by ___________',
         'image_url':null,
-        'answer':'',
+        'answer':'Lewis bases',
         'jumble':true,
         'options':[
             'Lewis bases',
@@ -75,6 +75,30 @@ mcqQuestions = {
     },
 
 
-
+    '3':{
+        'question':'In Coordination Complex, a ligand is surrounded by metal atoms(or ions)<br>Is this statement true ?',
+        'image_url':null,
+        'answer':'No',
+        'jumble':true,
+        'options':[
+            'Yes',
+            'No',
+            ''
+        ],
+        'option_remarks':[
+            '',
+            '',
+            ''
+        ],
+        'hints':[
+            '',
+            '',
+            ''
+        ]
+    },
+    
+    
+    
+    
 
 }
