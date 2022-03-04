@@ -35,6 +35,8 @@ englishLanguageContentRadio.addEventListener('change', (event) => {
     })
 })
 
+/*
+
 // display or hide content based on change in radio button
 let hindiLanguageContentRadio = document.querySelector('#hin_lang_content_radio')
 hindiLanguageContentRadio.addEventListener('change', (event) => {
@@ -45,3 +47,5 @@ hindiLanguageContentRadio.addEventListener('change', (event) => {
         element.classList.toggle('hide_content')
     })
 })
+
+*/
