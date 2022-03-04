@@ -66,23 +66,23 @@
             <style>
                 .small { font: italic 25px sans-serif; }
             </style>
-            <text id="metal_ion" x="150" y="150" class="small" textLength="25px" lengthAdjust="spacingAndGlyphs" fill="yellow">Zn²⁺</text>
+            <text id="metal_ion" x="150" y="150" class="small" textLength="25px" lengthAdjust="spacingAndGlyphs" fill="yellow" cursor="grab">Zn²⁺</text>
             <!--north south west east -->
             <!-- North -->
             <line x1="160" y1="135" x2="160" y2="105" stroke="white" />
-            <text x="150" y="100" class="ligand" textLength="25px" lengthAdjust="spacingAndGlyphs" fill="yellow">OH⁻</text>
+            <text x="150" y="100" class="ligand" textLength="25px" lengthAdjust="spacingAndGlyphs" fill="yellow" cursor="grab">OH⁻</text>
             
             <!-- South -->
             <line x1="160" y1="155" x2="160" y2="185" stroke="white" />
-            <text x="150" y="205" class="ligand" textLength="25px" lengthAdjust="spacingAndGlyphs" fill="yellow">OH⁻</text>
+            <text x="150" y="205" class="ligand" textLength="25px" lengthAdjust="spacingAndGlyphs" fill="yellow" cursor="grab">OH⁻</text>
             
             <!-- West -->
             <line x1="145" y1="150" x2="115" y2="150" stroke="white" />
-            <text x="90" y="150" class="ligand" textLength="25px" lengthAdjust="spacingAndGlyphs" fill="yellow">HO⁻</text>
+            <text x="90" y="150" class="ligand" textLength="25px" lengthAdjust="spacingAndGlyphs" fill="yellow" cursor="grab">HO⁻</text>
             
             <!-- East -->
             <line x1="180" y1="150" x2="210" y2="150" stroke="white" />
-            <text x="215" y="150" class="ligand" textLength="25px" lengthAdjust="spacingAndGlyphs" fill="yellow">OH⁻</text>
+            <text x="215" y="150" class="ligand" textLength="25px" lengthAdjust="spacingAndGlyphs" fill="yellow" cursor="grab">OH⁻</text>
             
         </svg>
 
@@ -91,8 +91,9 @@
 
         <script>
             let ligand = document.querySelectorAll('.ligand')
+            let ligand_message = "Correctly Selected! They are called <em><strong>ligands</strong></em>. They are <em>Lewis base</em> as they donate their lone pair of electrons."
             ligand.forEach(element => element.addEventListener('click', (event) => {
-                document.querySelector('#message_for_ligand').innerHTML = "Correctly Selected! They are called <em><strong>ligands</strong></em>"
+                document.querySelector('#message_for_ligand').innerHTML = ligand_message
                 })
             )
 
