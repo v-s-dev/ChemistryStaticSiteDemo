@@ -118,6 +118,26 @@
                 display: none;
             }
 
+
+.button_class {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: gold;
+    background-color: brown
+}
+
+.button_class:hover {
+    background-color: rgb(75, 17, 17)
+}
+
+.button_class:active {
+    
+}
+
+
 </style>
 </head>
 <body>
@@ -195,6 +215,7 @@
         <label for="radio_4" id="option_4" class="opt" name="options" readonly></label>
     </div>
 
+    <button id="check_submit_button" type="button" class="button_class">Check</button>
     
 
 <script>
@@ -257,9 +278,11 @@
             questionAnswered = true // set to <true> after user submits answer for checking so no repeat submission occurs
 
             if(answer_result === true){
+                changeButtonNameFromCheckToNext()
                 showResult('correct')
                 //window.parent.removeIdAfterTakingTestOrNotAttempting('McqNormal', id)
             }else if(answer_result === false){
+                changeButtonNameFromCheckToNext()
                 showResult('wrong')
                 //window.parent.removeIdAfterTakingTestOrNotAttempting('McqNormal', id)
             }
@@ -322,6 +345,19 @@
             alert("Please answer current question")
         }
     }
+
+    function changeButtonNameFromCheckToNext(){
+        let checkSubmitButton = document.querySelector('#check_submit_button')
+        checkSubmitButton.innerHTML = "Next"
+    }
+
+    let checkSubmitButton = document.querySelector('#check_submit_button')
+    
+    checkSubmitButton.addEventListener('click', (event) => {
+        checkAnswer("")
+    })
+
+
 
     window.addEventListener('keydown', (event) => {
         if(numbers.includes(event.key)){
