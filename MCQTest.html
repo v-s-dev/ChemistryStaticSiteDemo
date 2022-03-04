@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <META HTTP-EQUIV="Access-Control-Allow-Origin" CONTENT="https://v-s-dev.github.io">
         <style>
             body{
                 background-color: black;
@@ -127,6 +128,7 @@
     //let pathName = window.location.pathname
 
     let questionNumber = window.parent.questionNumber
+    alert(window.parent)
 
     let questionsIds = Object.keys(mcqQuestions)
 
