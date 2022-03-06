@@ -41,7 +41,7 @@ mcqQuestions = {
         ],
         'option_remarks':[
             'In coordination complex, metals receive the electrons donated by ligands',
-            'POsitive metal ions attract lone pair of electrons from other atoms (or molecules) to form a coordination complex',
+            'Positive metal ions attract lone pair of electrons from other atoms (or molecules) to form a coordination complex',
             ''
         ],
         'hints':[

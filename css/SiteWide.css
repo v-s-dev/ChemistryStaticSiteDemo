@@ -38,3 +38,9 @@ img{
 #check_submit_button{
     margin-top: 2em;
 }
+
+.thick_left_border_for_remarks{
+    border-left: 10px;
+    padding-left: 1em;
+    margin-left: 10px;
+}
