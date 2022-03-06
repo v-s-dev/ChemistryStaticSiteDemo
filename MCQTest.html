@@ -183,6 +183,18 @@
         }
     }
 
+    let option_remarks = []
+    for(let i = 0; i < currentQuestion.option_remarks.length; i++){
+        if(currentQuestion.option_remarks[i] !== ''){
+            option_remarks.push(currentQuestion.option_remarks[i])
+            console.log(option_remarks.length) // option remark number
+            console.log(option_remarks[option_remarks.length -1]) // option remark text
+
+            console.log("---")
+        }
+    }
+
+
 </script>
     <div>
         <label for="question" class="question_label">Question - Hints & option specific remarks will be added today</label>
@@ -195,25 +207,33 @@
         <input type="radio" id="radio_1" class="radio" name="option_list" value="1">
         <label for="option_1" class="label_for_option_number">1</label>
         <label for="radio_1" id="option_1" class="opt" name="options" readonly></label>
+        <p id="remark_1" class="remark_class hide_content"></p>
     </div>
 
     <div id="div_2" class="hide_option">
         <input type="radio" id="radio_2" class="radio" name="option_list" value="2">
         <label for="option_2" class="label_for_option_number">2</label>
         <label for="radio_2" id="option_2" class="opt" name="options" readonly></label>
+        <p id="remark_2" class="remark_class hide_content"></p>
     </div>
 
     <div id="div_3" class="hide_option">
         <input type="radio" id="radio_3" class="radio" name="option_list" value="3">
         <label for="option_3" class="label_for_option_number">3</label>
         <label for="radio_3" id="option_3" class="opt" name="options" readonly></label>
+        <p id="remark_3" class="remark_class hide_content"></p>
     </div>
 
     <div id="div_4" class="hide_option">
         <input type="radio" id="radio_4" class="radio" name="option_list" value="4">
         <label for="option_4" class="label_for_option_number">4</label>
         <label for="radio_4" id="option_4" class="opt" name="options" readonly></label>
+        <p id="remark_4" class="remark_class hide_content"></p>
     </div>
+
+    <button id="show_hint_button" type="button" class="button_class">Show hint</button>
+
+    <div id="hind_div"></div>
 
     <button id="check_submit_button" type="button" class="button_class">Check</button>
     
@@ -229,6 +249,10 @@
         numbers.push(optionNumber.toString(10))
         document.querySelector('#div_' + optionNumber).classList.remove('hide_option')
         document.querySelector('#option_' + (i + 1)).innerHTML = options[i]
+
+        document.querySelector('#remark_' + (i + 1)).classList.remove('hide_content')
+        document.querySelector('#remark_' + (i + 1)).innerHTML = option_remarks[i]
+
     }
     
     let questionAnswered = false

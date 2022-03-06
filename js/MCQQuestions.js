@@ -40,14 +40,14 @@ mcqQuestions = {
             ''
         ],
         'option_remarks':[
-            'remark 1',
-            'remark 2',
+            'In coordination complex, metals receive the electrons donated by ligands',
+            'POsitive metal ions attract lone pair of electrons from other atoms (or molecules) to form a coordination complex',
             ''
         ],
         'hints':[
-            'hint 1',
-            'hint 2',
-            'hint 3'
+            'Small molecules or ions that surround something',
+            'Metal is surrounded by ligands',
+            'Small Molecules or ions that share electrons from lone pair'
         ]
     },
 
@@ -63,14 +63,14 @@ mcqQuestions = {
             ''
         ],
         'option_remarks':[
-            'r 1',
-            'r 2',
+            'Lewis bases donate electrons',
+            'Lewis acids accept electrons',
             ''
         ],
         'hints':[
-            'h 1',
-            'h 2',
-            'a'
+            'Lewis acids or bases always deal in electrons. They donate or accept in reverse when compared to Brønsted-Lowry acids or bases',
+            'To remember, just see the "e" in Lewis and think about "e" for "electrons". And when you see Lewis Acids, just see the "A" in Acids and think about "A" for "Accept". Lewis acids accept electrons. Lewis bases donate.' ,
+            'Lewis bases'
         ]
     },
 
