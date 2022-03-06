@@ -201,7 +201,7 @@
         if(currentQuestion.hints[i] !== ''){
             hints.push(currentQuestion.hints[i])
             console.log(hints.length) // option remark number
-            console.log(hints[option_remarks.length -1]) // option remark text
+            console.log(hints[hints.length -1]) // option remark text
 
             console.log("---")
         }
@@ -360,9 +360,10 @@
     hint_button.addEventListener('click', (event) => {
         document.querySelector('#hint_div').classList.remove('hide_content')
         if(hint_number < hints.length){
-            hint_element = document.querySelector('#hint_' + (hint_number + 1))
+            let hint_element = document.querySelector('#hint_' + (hint_number + 1))
             hint_element.classList.remove('hide_content')
             hint_element.innerHTML = hints[hint_number]
+            hint_number += 1
         }
 
 
