@@ -35,14 +35,18 @@ img{
     color: gold;
 }
 
+#show_hint_button{
+    margin-top: 1em;
+}
+
 
 #check_submit_button{
     margin-top: 2em;
 }
 
 .thick_left_border_for_remarks{
-    border-left: 20px;
-    padding-left: 1em;
-    margin-left: 20px;
-    border-left-color: brown;
+    border-left: 30px;
+    padding-left: 2em;
+    margin-left: 30px;
+    border-left-color: yellow;
 }
