@@ -246,7 +246,7 @@
 
     <button id="show_hint_button" type="button" class="button_class">Show hint</button>
 
-    <div id="hint_div">
+    <div id="hint_div" class="hide_content">
         <p>-- Hints --</p>
         <p id="hint_1" class="hide_content hint_class"></p>
         <p id="hint_2" class="hide_content hint_class"></p>
@@ -360,7 +360,7 @@
     hint_button.addEventListener('click', (event) => {
         document.querySelector('#hint_div').classList.remove('hide_content')
         if(hint_number < hints.length){
-            hint_element = document.querySelector('#hint_' + hint_number)
+            hint_element = document.querySelector('#hint_' + (hint_number + 1))
             hint_element.classList.remove('hide_content')
             hint_element.innerHTML = hints[hint_number]
         }
