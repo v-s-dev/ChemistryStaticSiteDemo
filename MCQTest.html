@@ -196,6 +196,17 @@
         }
     }
 
+    let hints = []
+    for(let i = 0; i < currentQuestion.hints.length; i++){
+        if(currentQuestion.hints[i] !== ''){
+            hints.push(currentQuestion.hints[i])
+            console.log(hints.length) // option remark number
+            console.log(hints[option_remarks.length -1]) // option remark text
+
+            console.log("---")
+        }
+    }
+
 
 </script>
     <div>
@@ -235,7 +246,14 @@
 
     <button id="show_hint_button" type="button" class="button_class">Show hint</button>
 
-    <div id="hint_div"></div>
+    <div id="hint_div">
+        <p>-- Hints --</p>
+        <p id="hint_1" class="hide_content hint_class"></p>
+        <p id="hint_2" class="hide_content hint_class"></p>
+        <p id="hint_3" class="hide_content hint_class"></p>
+        <p id="hint_4" class="hide_content hint_class"></p>
+        
+    </div>
 
     <button id="check_submit_button" type="button" class="button_class">Check</button>
     
@@ -336,6 +354,20 @@
         highlightSelectedOption(num)
     })
     )
+
+    let hint_number = 0
+    let hint_button = document.querySelector('#show_hint_button')
+    hint_button.addEventListener('click', (event) => {
+        document.querySelector('#hint_div').classList.remove('hide_content')
+        if(hint_number < hints.length){
+            hint_element = document.querySelector('#hint_' + hint_number)
+            hint_element.classList.remove('hide_content')
+            hint_element.innerHTML = hints[hint_number]
+        }
+
+
+
+    })
 
     function highlightSelectedOption(num){
         let radio = document.querySelector('#radio_'+num)
